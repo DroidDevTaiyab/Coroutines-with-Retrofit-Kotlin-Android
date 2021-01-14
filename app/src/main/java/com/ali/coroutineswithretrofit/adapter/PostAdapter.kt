@@ -10,7 +10,7 @@ import com.ali.coroutineswithretrofit.R
 import com.ali.coroutineswithretrofit.model.Post
 
 /**
- * Created by Taiyab Ali on 07-Dec-20.
+ * Created by Taiyab Ali on 14-Jan-20.
  */
 
 class PostAdapter(private val context: Context, private var postList: ArrayList<Post>) :
@@ -29,9 +29,9 @@ class PostAdapter(private val context: Context, private var postList: ArrayList<
 
         val post = postList[position]
 
-        holder.id.text = post.id
+//        holder.id.text = post.id
         holder.title.text = post.title
-        holder.body.text = post.body
+//        holder.body.text = post.body
     }
 
     override fun getItemCount(): Int {
@@ -39,9 +39,9 @@ class PostAdapter(private val context: Context, private var postList: ArrayList<
     }
 
     class PostViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val id: TextView = itemView.findViewById(R.id.post_id)
+//        val id: TextView = itemView.findViewById(R.id.post_id)
         val title: TextView = itemView.findViewById(R.id.post_title)
-        val body: TextView = itemView.findViewById(R.id.post_body)
+//        val body: TextView = itemView.findViewById(R.id.post_body)
     }
 
     fun setPostData(postList: ArrayList<Post>) {

@@ -6,6 +6,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ali.coroutineswithretrofit.R
@@ -17,8 +18,9 @@ import com.ali.coroutineswithretrofit.viewmodel.PostViewModelFactory
 import kotlinx.android.synthetic.main.activity_main.*
 
 /**
- * Created by Taiyab Ali on 07-Dec-20.
+ * Created by Taiyab Ali on 14-Jan-20.
  */
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -36,7 +38,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         initRecyclerView()
 
-
         val postRepo = PostRepo()
         val viewModelFactory = PostViewModelFactory(postRepo)
 
@@ -45,7 +46,6 @@ class MainActivity : AppCompatActivity() {
         postViewModel.my_response.observe(this, Observer {
 
             postAdapter.setPostData(it as ArrayList<Post>) // back on UI thread
-            Log.d("xyzT", it[0].title)
             progressBar.visibility = View.GONE
             recyclerView.visibility = View.VISIBLE
         })
@@ -59,7 +59,7 @@ class MainActivity : AppCompatActivity() {
 
         recyclerView.apply {
             setHasFixedSize(true)
-            layoutManager = LinearLayoutManager(this@MainActivity)
+            layoutManager = GridLayoutManager(this@MainActivity,3)
             adapter = postAdapter
         }
 
