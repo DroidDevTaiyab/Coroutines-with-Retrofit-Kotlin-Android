@@ -59,7 +59,7 @@ class MainActivity : AppCompatActivity() {
 
         recyclerView.apply {
             setHasFixedSize(true)
-            layoutManager = GridLayoutManager(this@MainActivity,3)
+            layoutManager = LinearLayoutManager(this@MainActivity)
             adapter = postAdapter
         }
 
